@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>News Blog</title>
@@ -9,21 +9,13 @@
         <h1><a href="">World News Blog</a></h1>
     </div>
 
-    <div>
-        <p>Published: 14.01.2017, 12:14</p>
-        <h2><a href="">Trump beheading cover sparks criticism</a></h2>
-        <p>Germany's influential weekly news magazine Der Spiegel has come under fire for a cover image showing US President Donald Trump beheading the Statue of Liberty.
-Some German newspapers criticised the cartoon, while the German vice-president of the European Parliament called it "tasteless".
-The cartoonist, Edel Rodriguez, said the image represented "the beheading of democracy".</p>
-    </div>
-
-    <div>
-        <p>Published: 20.01.2017, 06:05</p>
-        <h2><a href="">Letters from Africa: Nigeria's art of flowery language</a></h2>
-        <p>In our series of letters from African journalists, novelist and writer Adaobi Tricia Nwaubani considers the art of Nigerian verbosity.
-My friends in the international media are perplexed by the flowery language often used in press releases from Nigerian officials.
-The pretentious diction, dying metaphors and padded sentences would make George Orwell somersault in his grave.</p>
-    </div>
+    {% for post in posts %}
+            <div>
+                <em><p>{{ post.published_date }}</p></em>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+    {% endfor %}
 
 </body>
 </html>
