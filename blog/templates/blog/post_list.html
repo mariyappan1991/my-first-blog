@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>News Blog</title>
-</head>
-<body>
-    <div>
-        <h1><a href="">World News Blog</a></h1>
-    </div>
+{%  extends "blog/base.html" %}
 
+{% block content %}
     {% for post in posts %}
-            <div>
-                <em><p>{{ post.published_date }}</p></em>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
+        <div class="post">
+            <div class="date">
+                <em><p>published: {{ post.published_date }}</p></em>
             </div>
+            <h3><a href="{%  url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
